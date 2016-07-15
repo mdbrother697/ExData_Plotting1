@@ -11,7 +11,14 @@ hpcAll <- read.csv("~/Coursera/ExData_Proj1/household_power_consumption.txt",
 hpc <- subset(hpcAll, Date== "1/2/2007" | Date == "2/2/2007")
 rm(hpcAll)   # Clean up name space
 
-## Code does not work yet. DateTime is all NA
-
 x <- paste(hpc$Date, hpc$Time)
-DateTime <- strptime(x, "%d/%m/%y %H:%M:%S")
+DateTime <- strptime(x, "%d/%m/%Y %H:%M:%S")
+hpc <- cbind(DateTime, hpc)
+
+## Create the plot
+
+png(file="plot1.png", width=480, height = 480)
+with(hpc, hist(Global_active_power, col = "red",
+               xlab = "Global Active Power (kilowatts)", 
+               main = "Global Active Power"))
+dev.off()
