@@ -25,7 +25,7 @@ with(hpc, plot(DateTime, Global_active_power, type="l",
                ylab = "Global Active Power"))
 
 ## Pane 2
-
+with(hpc, plot(DateTime, Voltage, type="l"))
 
 
 ## pane 3
@@ -38,6 +38,6 @@ legend("topright",
         col=c("black", "red", "blue"), lwd=2)
 
 ##Pane 4
-
+with(hpc, plot(DateTime, Global_reactive_power, type="l"))
 
 dev.off()
